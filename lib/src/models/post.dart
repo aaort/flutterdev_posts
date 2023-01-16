@@ -13,7 +13,7 @@ class Post {
     required this.ups,
   });
 
-  factory Post.fromMap(Map<String, dynamic> postMap) {
+  factory Post.fromMap(Map<dynamic, dynamic> postMap) {
     return Post(
       title: postMap['title'],
       author: postMap['author'],
@@ -21,5 +21,15 @@ class Post {
       selftext: postMap['selftext'],
       ups: postMap['ups'],
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'author': author,
+      'thumbnail': thumbnail,
+      'selftext': selftext,
+      'ups': ups,
+    };
   }
 }
