@@ -3,9 +3,9 @@ import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/screens/post_details.dart';
 import 'package:flutterdev_posts/src/widgets/thumbnail.dart';
 
-class PostView extends StatelessWidget {
+class PostCard extends StatelessWidget {
   final Post post;
-  const PostView({required this.post, super.key});
+  const PostCard({required this.post, super.key});
 
   onNavigateToDetails(BuildContext context) {
     Navigator.of(context).push(

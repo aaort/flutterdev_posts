@@ -4,7 +4,7 @@ import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/services/connectivity_provider.dart';
 import 'package:flutterdev_posts/src/services/data_service.dart';
 import 'package:flutterdev_posts/src/widgets/connectivity_info.dart';
-import 'package:flutterdev_posts/src/widgets/post_view.dart';
+import 'package:flutterdev_posts/src/widgets/post_card.dart';
 
 class PostList extends ConsumerWidget {
   final List<Post> posts;
@@ -29,7 +29,7 @@ class PostList extends ConsumerWidget {
 
       child: ListView(
         padding: const EdgeInsets.all(10),
-        children: posts.map((post) => PostView(post: post)).toList(),
+        children: posts.map((post) => PostCard(post: post)).toList(),
       ),
     );
   }
