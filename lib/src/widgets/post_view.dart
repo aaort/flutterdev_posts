@@ -38,10 +38,11 @@ class PostView extends StatelessWidget {
   }
 
   Widget? _trailing() {
+    final thumbnail = post.thumbnail;
     // Show thumbnail only if not null and start with http
-    if (post.thumbnail != null && post.thumbnail!.startsWith('http')) {
+    if (thumbnail != null && thumbnail.startsWith('http')) {
       return CachedNetworkImage(
-        imageUrl: post.thumbnail!,
+        imageUrl: thumbnail,
         placeholder: (context, url) => const CircularProgressIndicator(),
         errorWidget: (context, url, error) => const Icon(Icons.error),
         height: 100,
