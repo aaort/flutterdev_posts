@@ -23,12 +23,15 @@ class PostCard extends StatelessWidget {
         elevation: 5,
         child: Container(
           constraints: const BoxConstraints(minHeight: 80),
-          padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 10),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Posted by u/${post.author}'),
+                Text(
+                  'Posted by u/${post.author}',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
                 const SizedBox(height: 10),
                 Text(post.title),
               ],
