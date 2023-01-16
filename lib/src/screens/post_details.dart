@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/widgets/thumbnail.dart';
 
@@ -24,7 +25,7 @@ class PostDetails extends StatelessWidget {
               ],
             ),
             const SizedBox(width: 20),
-            Flexible(flex: 7, child: Text(post.selftext)),
+            Flexible(flex: 7, child: Markdown(data: post.selftext)),
             if (post.thumbnail != null && post.thumbnail!.startsWith('https'))
               Flexible(flex: 3, child: Thumbnail(imageUrl: post.thumbnail!))
           ],
