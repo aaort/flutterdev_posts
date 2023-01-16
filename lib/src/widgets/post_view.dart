@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/screens/post_details.dart';
@@ -29,22 +30,25 @@ class PostView extends StatelessWidget {
                 Text(post.title),
               ],
             ),
-            trailing:
-                post.thumbnail != null && post.thumbnail!.startsWith('https')
-                    ? SizedBox(
-                        // height: 200,
-                        // width: 200,
-                        child: Image.network(
-                          post.thumbnail!,
-                          height: 100,
-                          scale: 1,
-                          fit: BoxFit.fill,
-                        ),
-                      )
-                    : null,
+            trailing: _trailing(),
           ),
         ),
       ),
     );
+  }
+
+  Widget? _trailing() {
+    // Show thumbnail only if not null and start with http
+    if (post.thumbnail != null && post.thumbnail!.startsWith('http')) {
+      return CachedNetworkImage(
+        imageUrl: post.thumbnail!,
+        placeholder: (context, url) => const CircularProgressIndicator(),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+        height: 100,
+        fit: BoxFit.fill,
+      );
+    } else {
+      return null;
+    }
   }
 }
