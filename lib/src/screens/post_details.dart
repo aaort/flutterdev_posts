@@ -27,7 +27,9 @@ class PostDetails extends StatelessWidget {
             const SizedBox(width: 20),
             Flexible(flex: 7, child: Markdown(data: post.selftext)),
             if (post.thumbnail != null && post.thumbnail!.startsWith('https'))
-              Flexible(flex: 3, child: Thumbnail(imageUrl: post.thumbnail!))
+              Align(
+                  alignment: Alignment.topRight,
+                  child: Thumbnail(imageUrl: post.thumbnail!))
           ],
         ),
       ),
