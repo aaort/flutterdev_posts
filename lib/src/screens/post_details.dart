@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
+import 'package:flutterdev_posts/src/widgets/thumbnail.dart';
 
 class PostDetails extends StatelessWidget {
   final Post post;
@@ -25,7 +26,7 @@ class PostDetails extends StatelessWidget {
             const SizedBox(width: 20),
             Flexible(flex: 7, child: Text(post.selftext)),
             if (post.thumbnail != null && post.thumbnail!.startsWith('https'))
-              Flexible(flex: 3, child: Image.network(post.thumbnail!))
+              Flexible(flex: 3, child: Thumbnail(imageUrl: post.thumbnail!))
           ],
         ),
       ),
