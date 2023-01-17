@@ -45,7 +45,7 @@ class PostCard extends StatelessWidget {
 
   Widget? _trailing() {
     final thumbnail = post.thumbnail;
-    // Show thumbnail only if not null and start with http
+    // Show thumbnail only if not null and starts with http
     if (thumbnail != null && thumbnail.startsWith('http')) {
       return Thumbnail(imageUrl: thumbnail);
     } else {

@@ -10,7 +10,6 @@ const _url = 'https://reddit.com/r/flutterdev/new.json';
 
 class DataService {
   Future<List<Post>?> getPosts({int page = 25}) async {
-    // _dio.options.headers['Authorization'] = basicAuth;
     final response = await http.get(Uri.parse(_url));
     final posts = jsonDecode(response.body)['data']['children'] as List;
     final result = <Post>[];
