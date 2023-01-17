@@ -11,9 +11,11 @@ class Home extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final postsAsyncValue = ref.watch(postsProvider);
-    ref.listen(connectivityProvider, (_, isConnected) {
-      if (!isConnected.hasValue) return;
-      showConnectivityInfo(context: context, isConnected: isConnected.value!);
+    ref.listen(connectivityProvider, (wasConnected, currentlyConnected) {
+      if (wasConnected == currentlyConnected) return;
+      if (!currentlyConnected.hasValue) return;
+      showConnectivityInfo(
+          context: context, isConnected: currentlyConnected.value!);
     });
 
     return Scaffold(
