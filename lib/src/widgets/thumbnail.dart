@@ -11,7 +11,6 @@ class Thumbnail extends StatelessWidget {
       imageUrl: imageUrl,
       placeholder: (context, url) => const CircularProgressIndicator(),
       errorWidget: (context, url, error) => const Icon(Icons.error),
-      height: 100,
       fit: BoxFit.fill,
     );
   }
