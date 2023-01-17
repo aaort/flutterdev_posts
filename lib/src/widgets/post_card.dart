@@ -17,6 +17,7 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final thumbnail = post.thumbnail;
     return InkWell(
       onTap: () => onNavigateToDetails(context),
       child: Card(
@@ -36,20 +37,12 @@ class PostCard extends StatelessWidget {
                 Text(post.title),
               ],
             ),
-            trailing: _trailing(),
+            trailing: thumbnail != null && thumbnail.startsWith('http')
+                ? Thumbnail(imageUrl: thumbnail)
+                : null,
           ),
         ),
       ),
     );
-  }
-
-  Widget? _trailing() {
-    final thumbnail = post.thumbnail;
-    // Show thumbnail only if not null and starts with http
-    if (thumbnail != null && thumbnail.startsWith('http')) {
-      return Thumbnail(imageUrl: thumbnail);
-    } else {
-      return null;
-    }
   }
 }
