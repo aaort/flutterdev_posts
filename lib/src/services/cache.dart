@@ -8,6 +8,7 @@ import 'package:path_provider/path_provider.dart'
 final cacheProvider = Provider((ref) => Cache());
 
 const _boxName = 'posts';
+const _boxDataKey = 'data';
 
 // Util for caching data
 class Cache {
@@ -24,13 +25,13 @@ class Cache {
   void setPosts(List<Post> posts) async {
     final postsBox = await _getPostsBox();
     final mappedPosts = posts.map((post) => post.toMap()).toList();
-    postsBox.put('data', mappedPosts);
+    postsBox.put(_boxDataKey, mappedPosts);
   }
 
   /// Get cached posts if exist
   Future<List<Post>> getPosts() async {
     final postsBox = await _getPostsBox();
-    final data = postsBox.get('data') ?? [];
+    final data = postsBox.get(_boxDataKey) ?? [];
     final postMaps = List<Map>.from(data);
     final posts = List<Post>.from(postMaps.map(Post.fromMap));
     return posts;
