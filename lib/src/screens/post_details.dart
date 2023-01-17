@@ -31,8 +31,10 @@ class PostDetails extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(post.title,
-                      style: Theme.of(context).textTheme.bodyLarge),
+                  Text(
+                    post.title,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                   const SizedBox(height: 20),
                   Expanded(
                     child:
