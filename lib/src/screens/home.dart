@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutterdev_posts/src/services/connectivity_provider.dart';
-import 'package:flutterdev_posts/src/services/posts_provider.dart';
+import 'package:flutterdev_posts/src/providers/connectivity_provider.dart';
+import 'package:flutterdev_posts/src/providers/posts_provider.dart';
 import 'package:flutterdev_posts/src/widgets/connectivity_info.dart';
 import 'package:flutterdev_posts/src/widgets/post_list.dart';
 
