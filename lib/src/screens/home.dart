@@ -10,7 +10,6 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final postsAsyncValue = ref.watch(postsProvider);
     ref.listen(connectivityProvider, (wasConnected, currentlyConnected) {
       if (wasConnected == currentlyConnected) return;
       if (!currentlyConnected.hasValue) return;
@@ -20,16 +19,11 @@ class Home extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('r/FlutterDev')),
-      body: postsAsyncValue.when(
-        error: (_, __) => const Center(child: Text('Something went wrong')),
-        loading: () => const Center(child: CircularProgressIndicator()),
-        data: (posts) {
-          if (posts == null) {
-            return const Center(child: Text('Something went wrong'));
-          }
-          return PostList(posts: posts);
-        },
-      ),
+      body: ref.watch(postsProvider).when(
+            error: (_, __) => const Center(child: Text('Something went wrong')),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            data: (posts) => PostList(posts: posts ?? []),
+          ),
     );
   }
 }
