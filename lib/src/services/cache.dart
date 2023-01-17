@@ -1,11 +1,8 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_riverpod/flutter_riverpod.dart' show Provider;
 import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:hive/hive.dart' show Hive, Box;
 import 'package:path_provider/path_provider.dart'
     show getApplicationDocumentsDirectory;
-
-final cacheProvider = Provider((ref) => Cache());
 
 const _boxName = 'posts';
 const _boxDataKey = 'data';

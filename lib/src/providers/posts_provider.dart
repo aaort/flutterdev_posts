@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/providers/data_service_provider.dart';
-import 'package:flutterdev_posts/src/services/cache.dart';
+import 'package:flutterdev_posts/src/providers/cache_provider.dart';
 import 'package:flutterdev_posts/src/providers/connectivity_provider.dart';
 
 final postsProvider = FutureProvider<List<Post>?>((ref) async {
