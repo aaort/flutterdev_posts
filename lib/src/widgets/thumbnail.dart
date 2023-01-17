@@ -7,11 +7,14 @@ class Thumbnail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      placeholder: (context, url) => const CircularProgressIndicator(),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
-      fit: BoxFit.fill,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(3),
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        placeholder: (context, url) => const CircularProgressIndicator(),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+        fit: BoxFit.fill,
+      ),
     );
   }
 }
