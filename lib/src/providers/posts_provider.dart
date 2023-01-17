@@ -6,11 +6,12 @@ import 'package:flutterdev_posts/src/providers/connectivity_provider.dart';
 
 final postsProvider = FutureProvider<List<Post>?>((ref) async {
   final isConnectedAsyncValue = ref.watch(connectivityProvider);
-  final cache = ref.watch(cacheProvider);
   final isConnected = isConnectedAsyncValue.value;
-  // If internet connection exists fetch the data
   if (isConnected == null) return [];
+  final cache = ref.watch(cacheProvider);
+  // If no internet connection return cached data
   if (!isConnected) return await cache.getPosts();
+  // If internet connection exists fetch the data
   if (isConnected) {
     final dataService = ref.watch(postsServiceProvider);
     final posts = await dataService.getPosts();
@@ -19,4 +20,5 @@ final postsProvider = FutureProvider<List<Post>?>((ref) async {
     cache.setPosts(posts);
     return posts;
   }
+  return [];
 });
