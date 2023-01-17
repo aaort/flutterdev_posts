@@ -17,11 +17,14 @@ class Home extends ConsumerWidget {
     });
 
     return Scaffold(
+      appBar: AppBar(title: const Text('r/FlutterDev')),
       body: postsAsyncValue.when(
         error: (_, __) => const Center(child: Text('Something went wrong')),
         loading: () => const Center(child: CircularProgressIndicator()),
         data: (posts) {
-          if (posts == null) return Center(child: Text('Something went wrong'));
+          if (posts == null) {
+            return const Center(child: Text('Something went wrong'));
+          }
           return PostList(posts: posts);
         },
       ),
