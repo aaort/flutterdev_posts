@@ -21,7 +21,7 @@ class Cache {
   }
 
   /// Cache posts
-  setPosts(List<Post> posts) async {
+  void setPosts(List<Post> posts) async {
     final postsBox = await _getPostsBox();
     final mappedPosts = posts.map((post) => post.toMap()).toList();
     postsBox.put('data', mappedPosts);
