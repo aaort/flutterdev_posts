@@ -21,7 +21,7 @@ class PostCard extends StatelessWidget {
       onTap: () => onNavigateToDetails(context),
       child: Card(
         elevation: 5,
-        child: Container(
+        child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 80),
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(horizontal: 10),
