@@ -9,6 +9,7 @@ class PostDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final thumbnail = post.thumbnail;
     return Scaffold(
       appBar: AppBar(title: Text(post.subreddit)),
       body: Padding(
@@ -37,16 +38,19 @@ class PostDetails extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Expanded(
-                    child:
-                        Markdown(padding: EdgeInsets.zero, data: post.selftext),
+                    child: Markdown(
+                      padding: EdgeInsets.zero,
+                      data: post.selftext,
+                    ),
                   ),
                 ],
               ),
             ),
-            if (post.thumbnail != null && post.thumbnail!.startsWith('https'))
+            if (thumbnail != null && thumbnail.startsWith('https'))
               Align(
-                  alignment: Alignment.topRight,
-                  child: Thumbnail(imageUrl: post.thumbnail!))
+                alignment: Alignment.topRight,
+                child: Thumbnail(imageUrl: thumbnail),
+              )
           ],
         ),
       ),
