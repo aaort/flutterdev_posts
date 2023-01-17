@@ -18,7 +18,7 @@ class PostList extends ConsumerWidget {
       onRefresh: () async {
         if (!isConnected.hasValue) return;
         if (isConnected.value!) {
-          ref.refresh(postsProvider);
+          ref.invalidate(postsProvider);
         } else {
           showConnectivityInfo(
             context: context,
