@@ -15,7 +15,7 @@ class Home extends ConsumerWidget {
         ref.invalidate(postsProvider);
         showConnectivityInfo(
           context: context,
-          isConnected: true,
+          isConnected: isConnected.value,
         );
       });
     });
