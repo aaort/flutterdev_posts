@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
@@ -12,19 +13,15 @@ class PostList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isConnected = ref.watch(connectivityProvider);
     return RefreshIndicator(
       // Do not refresh if not connected to the internet, show snackbar instead
       onRefresh: () async {
-        if (!isConnected.hasValue) return;
-        if (isConnected.value!) {
-          ref.invalidate(postsProvider);
-        } else {
-          showConnectivityInfo(
-            context: context,
-            isConnected: isConnected.value!,
-          );
+        final isConnected =
+            await Connectivity().checkConnectivity() != ConnectivityResult.none;
+        if (isConnected) {
+          return ref.invalidate(postsProvider);
         }
+        showConnectivityInfo(context: context, isConnected: isConnected);
       },
 
       child: ListView(

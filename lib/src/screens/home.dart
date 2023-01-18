@@ -11,10 +11,12 @@ class Home extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(connectivityProvider, (wasConnected, currentlyConnected) {
-      if (wasConnected == currentlyConnected) return;
       if (!currentlyConnected.hasValue) return;
+      ref.invalidate(postsProvider);
       showConnectivityInfo(
-          context: context, isConnected: currentlyConnected.value!);
+        context: context,
+        isConnected: currentlyConnected.value!,
+      );
     });
 
     return Scaffold(
