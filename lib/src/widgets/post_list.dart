@@ -14,7 +14,7 @@ class PostList extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isConnected = ref.watch(connectivityProvider);
     return RefreshIndicator(
-      // Do not refresh if no not connected to the internet, show snackbar instead
+      // Do not refresh if not connected to the internet, show snackbar instead
       onRefresh: () async {
         if (!isConnected.hasValue) return;
         if (isConnected.value!) {
