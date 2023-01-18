@@ -4,7 +4,7 @@ import 'package:flutterdev_posts/src/models/post.dart';
 import 'package:flutterdev_posts/src/providers/cache_provider.dart';
 import 'package:flutterdev_posts/src/providers/posts_service_provider.dart';
 
-final postsProvider = FutureProvider<List<Post>?>((ref) async {
+final postsProvider = FutureProvider.autoDispose<List<Post>?>((ref) async {
   final connectivityValue = await Connectivity().checkConnectivity();
   final isConnected = connectivityValue != ConnectivityResult.none;
   final cache = ref.watch(cacheProvider);
