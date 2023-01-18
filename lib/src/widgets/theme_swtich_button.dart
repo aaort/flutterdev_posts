@@ -11,10 +11,7 @@ class ThemeSwitchButton extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: GestureDetector(
-        onTap: () {
-          // TODO: can be transformed into one line
-          ref.read(themeModeProvider.notifier).toggle();
-        },
+        onTap: ref.read(themeModeProvider.notifier).toggle,
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
           transitionBuilder: (child, anim) => RotationTransition(
