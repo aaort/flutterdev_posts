@@ -21,6 +21,7 @@ const _fakePost = Post(
   selftext: 'selftext',
   subreddit: 'subreddit',
   ups: 10,
+  permalink: 'https://reddit.com',
 );
 
 void main() {
