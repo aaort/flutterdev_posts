@@ -9,7 +9,8 @@ A simple application for displaying last 25 posts on [FlutterDev](https://www.re
   Connectivity: [connectivity_plus](https://pub.dev/packages/connectivity_plus)\
   Image caching: [cached_network_image](https://pub.dev/packages/cached_network_image)\
   Http requests: [http](https://pub.dev/packages/http)\
-  Markdown formatting: [flutter_markdown](https://pub.dev/packages/flutter_markdown)
+  Markdown formatting: [flutter_markdown](https://pub.dev/packages/flutter_markdown)\
+  Url launcher: [url_launcher](https://pub.dev/packages/url_launcher)
 
 ## Showcase
 
