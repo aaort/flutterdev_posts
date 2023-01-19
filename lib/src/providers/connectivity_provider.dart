@@ -8,6 +8,6 @@ final connectivityProvider = StreamProvider<bool>((ref) {
   });
 });
 
-final isConnectedProvider = FutureProvider.autoDispose((ref) async {
+final isConnectedProvider = FutureProvider.autoDispose<bool>((ref) async {
   return (await Connectivity().checkConnectivity()) != ConnectivityResult.none;
 });
