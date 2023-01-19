@@ -23,9 +23,11 @@ class PostList extends ConsumerWidget {
         }
       },
 
-      child: ListView(
-        padding: const EdgeInsets.all(10),
-        children: posts.map((post) => PostCard(post: post)).toList(),
+      child: ListView.separated(
+        padding: const EdgeInsets.all(10.0),
+        itemCount: posts.length,
+        itemBuilder: (context, index) => PostCard(post: posts[index]),
+        separatorBuilder: (context, index) => const SizedBox(height: 10),
       ),
     );
   }
