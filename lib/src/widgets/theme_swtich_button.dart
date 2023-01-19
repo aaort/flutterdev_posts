@@ -7,11 +7,11 @@ class ThemeSwitchButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: GestureDetector(
-        onTap: ref.read(themeModeProvider.notifier).toggle,
+    final themeMode = ref.watch(themeModeProvider).value;
+    return GestureDetector(
+      onTap: ref.read(themeModeProvider.notifier).toggle,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 350),
           transitionBuilder: (child, anim) => RotationTransition(
@@ -20,7 +20,7 @@ class ThemeSwitchButton extends ConsumerWidget {
                 : Tween<double>(begin: 0.75, end: 1).animate(anim),
             child: ScaleTransition(scale: anim, child: child),
           ),
-          child: themeMode.value == ThemeMode.dark ? _lightIcon : _darkIcon,
+          child: themeMode == ThemeMode.dark ? _lightIcon : _darkIcon,
         ),
       ),
     );
