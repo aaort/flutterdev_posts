@@ -34,10 +34,13 @@ class PostCard extends StatelessWidget {
             Text(
               'Posted by u/${post.author}',
               style: Theme.of(context).textTheme.bodySmall,
+              maxLines: 2,
             ),
             const SizedBox(height: 10),
             Text(
               post.title,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
