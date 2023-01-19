@@ -13,4 +13,7 @@ A simple application for displaying last 25 posts on [FlutterDev](https://www.re
 
 ## Showcase
 
-  <img src="media/desktop.png">
+<div style="flex-direction: row;">
+  <img src="media/desktop_dark.png" width="500" height="430">
+  <img src="media/desktop_light.png" width="500" height="430">
+</div>
