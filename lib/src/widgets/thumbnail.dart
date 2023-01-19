@@ -9,11 +9,14 @@ class Thumbnail extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(3),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        placeholder: (context, url) => const CircularProgressIndicator(),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
-        fit: BoxFit.fill,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: 90, minHeight: 100),
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          placeholder: (context, url) => const CircularProgressIndicator(),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
