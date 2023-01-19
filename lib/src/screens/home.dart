@@ -24,6 +24,7 @@ class Home extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('r/FlutterDev'),
+        centerTitle: true,
         actions: const [ThemeSwitchButton()],
       ),
       body: ref.watch(postsProvider).when(
