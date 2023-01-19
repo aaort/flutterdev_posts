@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutterdev_posts/src/models/post.dart';
+import 'package:flutterdev_posts/src/widgets/post_launcher.dart';
 import 'package:flutterdev_posts/src/widgets/thumbnail.dart';
 
 class PostDetails extends StatelessWidget {
@@ -11,7 +12,10 @@ class PostDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final thumbnail = post.thumbnail;
     return Scaffold(
-      appBar: AppBar(title: Text(post.subreddit)),
+      appBar: AppBar(
+        title: Text(post.subreddit),
+        actions: [PostLauncher(permalink: post.permalink)],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
